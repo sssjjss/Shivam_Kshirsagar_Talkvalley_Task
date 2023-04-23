@@ -5,11 +5,7 @@ class AdsControllers {
     const { q } = req.query;
     let filter = {};
     const qExp = new RegExp(q, "i");
-    if (q) {
-      filter = {
-        $or: [{ primaryText: qExp }, { headline: qExp }, { description: qExp }],
-      };
-    }
+    
 
     AdModel.aggregate([
       {
